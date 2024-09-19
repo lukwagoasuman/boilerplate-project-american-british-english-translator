@@ -45,15 +45,7 @@ class Translator {
             })
         }
 
-        Object.entries(wordDiffAndSpelling)
-            .map(([key, value]) => {
-                if (new RegExp(`${key} `, "gi").test(textLowerCase) ||
-                    new RegExp(`${key}[^A-Za-z]`, "gi").test(textLowerCase) ||
-                    new RegExp(`${key}$`, "gi").test(textLowerCase)) {
-
-                    translated = translated.replace(new RegExp(key, "gi"), `<span class="highlight">${value}</span>`) || text;
-                }
-            });
+        
 
         return translated || text;
     }
